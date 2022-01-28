@@ -600,6 +600,13 @@ type Generation struct {
 	// +optional
 	Synchronize bool `json:"synchronize,omitempty" yaml:"synchronize,omitempty"`
 
+	// Esisting controls if resources should be generated for source resources created prior to the
+	// rule itself.
+	// If existing is set to "true" resources will be generated for every matching source resource
+	// regardless of the creation timestamp. Defaults to "false" if not specified.
+	// +optional
+	Existing bool `json:"existing,omitempty" yaml:"existing,omitempty"`
+
 	// Data provides the resource declaration used to populate each generated resource.
 	// At most one of Data or Clone must be specified. If neither are provided, the generated
 	// resource will be created with default data only.
